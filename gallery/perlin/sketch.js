@@ -24,7 +24,7 @@ function setup(){
 // }
 
 let start = 0;
-let inc = 0.01;
+let inc = .001;
 
 // graph two dimensional Perlin noise
 
@@ -46,9 +46,9 @@ function draw(){
     yOff += inc;
   }
   // move over the noise
-  // start -= 0.01;
+  start -= 0.01;
   updatePixels();
-  noLoop();
+  // noLoop();
 }
 
 
