@@ -19,14 +19,15 @@ function draw() {
   eyeballList.forEach(eyeball => {
     eyeball.draw();
     eyeball.wiggle();
-  })
+  });
+  // noLoop();
 }
 
 function randomFill(){
-    r = random(100);
-    g = random(255);
-    b = random(255);
-    return { r, g, b, a: 200}
+  r = random(100);
+  g = random(255);
+  b = random(255);
+  return { r, g, b, a: 200}
 }
 
 class Eye {
@@ -39,18 +40,17 @@ class Eye {
   }
 
   wiggle(){
-    console.log('fuuuu')
-    this.x = this.x + random(-4, 4);
+    this.x = this.x + random(-1.5, 1.5);
     if (this.x > this.centerX + 4){ this.x = this.centerX + 4 }
     if (this.x < this.centerX - 4){ this.x = this.centerX - 4 }
-    this.y = this.y + random(-4, 4);
+    this.y = this.y + random(-1.5, 1.5);
     if (this.y > this.centerY + 4){ this.y = this.centerY + 4 }
     if (this.y < this.centerY - 4){ this.y = this.centerY - 4 }
   }
 
   draw(){
     fill('white')
-    ellipse(this.x, this.y, 30, 24);
+    ellipse(this.centerX, this.centerY, 30, 24);
     fill(this.color.r, this.color.g, this.color.b);
     circle(this.x , this.y, 10);
   }
