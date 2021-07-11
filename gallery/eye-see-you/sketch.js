@@ -11,14 +11,14 @@ function setup() {
       eyeballList.push(eyeball)
     }
   }
-  console.log({ eyeballList })
 }
 
 function draw() {
   background(220);
   eyeballList.forEach(eyeball => {
     eyeball.draw();
-    eyeball.wiggle();
+    // eyeball.wiggle();
+    eyeball.follow();
   });
   // noLoop();
 }
@@ -53,5 +53,10 @@ class Eye {
     ellipse(this.centerX, this.centerY, 30, 24);
     fill(this.color.r, this.color.g, this.color.b);
     circle(this.x , this.y, 10);
+  }
+
+  follow(){
+    this.x = map(mouseX, 0, width, this.centerX - 4, this.centerX + 4, true);
+    this.y = map(mouseY, 0, width, this.centerY - 4, this.centerY + 4, true);
   }
 }
