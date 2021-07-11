@@ -16,8 +16,8 @@ function draw() {
 class Stalker {
   centerX;
   centerY;
-  x
-  y
+  x;
+  y;
 
   constructor(x, y){
     this.centerX = x;
@@ -27,18 +27,14 @@ class Stalker {
   }
 
   init(){
-    fill('white')
+    fill('white');
     circle(this.centerX, this.centerY, 175);
     fill('blue');
     circle(this.x, this.y, 60);
   }
 
   follow(){
-    this.x = mouseX;
-    if (this.x >= this.centerX + 60) { this.x = this.centerX + 60 }
-    if (this.x <= this.centerX - 60) { this.x = this.centerX - 60 }
-    this.y = mouseY;
-    if (this.y >= this.centerY + 60) { this.y = this.centerY + 60 }
-    if (this.y <= this.centerY - 60) { this.y = this.centerY - 60 }
+    this.x = map(mouseX, 0, width, 225, 275, true);
+    this.y = map(mouseY, 0, width, 210, 280, true);
   }
 }
